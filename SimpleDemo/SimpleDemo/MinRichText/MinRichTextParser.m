@@ -72,7 +72,8 @@ NSString * const kBlankPlaceholder = @"\uFFFC";
             // 匹配内容非表情显示原文本
             NSString *nomalString = [content substringWithRange:range];
             NSMutableAttributedString *originalAttributedString =
-                [[NSMutableAttributedString alloc] initWithString:nomalString];
+            [[NSMutableAttributedString alloc] initWithString:nomalString
+                                                   attributes:textAttributeDict];
             [result appendAttributedString:originalAttributedString];
         } else {
             // 替换空白占位符
@@ -124,7 +125,8 @@ NSString * const kBlankPlaceholder = @"\uFFFC";
     if (location < content.length) {
         NSRange range = NSMakeRange(location, content.length - location);
         NSString *substring = [content substringWithRange:range];
-        NSMutableAttributedString *subAttributeString = [[NSMutableAttributedString alloc] initWithString:substring];
+        NSMutableAttributedString *subAttributeString = [[NSMutableAttributedString alloc] initWithString:substring
+                                                                                               attributes:textAttributeDict];
         [result appendAttributedString:subAttributeString];
     }
     
